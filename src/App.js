@@ -12,7 +12,8 @@ class App extends Component {
       text: 'Wow, what a cool test.',
       color: '#0793ca',
       items: 100,
-      imageId: 1
+      imageId: 1,
+      useComplexShape: false
     }
   }
 
@@ -23,8 +24,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TestControls imageId={parseInt(this.state.imageId)} onChange={this.handleChange} items={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></TestControls>
-        <CanvasTest imageId ={parseInt(this.state.imageId)} testSize={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></CanvasTest>
+        <TestControls useComplexShape={this.state.useComplexShape} imageId={parseInt(this.state.imageId)} onChange={this.handleChange} items={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></TestControls>
+        <CanvasTest useComplexShape={this.state.useComplexShape} imageId ={parseInt(this.state.imageId)} testSize={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></CanvasTest>
       </div>
     );
   }

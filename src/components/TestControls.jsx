@@ -8,7 +8,8 @@ class TestControls extends React.Component {
       text: props.text,
       color: props.color,
       items: props.items,
-      imageId: props.imageId
+      imageId: props.imageId,
+      useComplexShape: props.useComplexShape
     }
   }
 
@@ -26,6 +27,10 @@ class TestControls extends React.Component {
 
   handlePictureChange = (event) => {
     this.setState({imageId: parseInt(event.target.value)});
+  }
+
+  handleShapeChange = (event) => {
+    this.setState({useComplexShape: event.target.checked});
   }
 
   changeCanvases = () => {
@@ -50,6 +55,10 @@ class TestControls extends React.Component {
           <label htmlFor="pic1">Picture 1</label>
           <input id="pic2" className="picture-change" type="radio" name="imageId" value={2} checked={this.state.imageId === 2} onChange={this.handlePictureChange} />
           <label htmlFor="pic2">Picture 2</label>
+        </div>
+        <div className="test-control">
+          Use Complex Shape:
+          <input type="checkbox" name="useComplex" checked={this.state.useComplexShape} onChange={this.handleShapeChange} />
         </div>
         <div className="test-control">
           <button className="update-btn" onClick={this.changeCanvases}>Change Canvases</button>

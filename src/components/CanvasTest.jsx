@@ -1,6 +1,6 @@
 import React from 'react';
 import useImage from 'use-image';
-import {Stage, Layer, Text, Image, Rect} from 'react-konva';
+import {Stage, Layer, Text, Image, Rect, Shape} from 'react-konva';
 import bigImage from '../img/bigimage.jpg';
 import bigImage2 from '../img/bigimage2.jpg';
 
@@ -12,15 +12,40 @@ const BigImage = () => {
   return <Image width={WIDTH} height={HEIGHT} image={bigImg} />;
 }
 
+const ComplexShape = (props) => {
+  return (
+    <Shape
+      sceneFunc={(context, shape) => {
+        context.beginPath();
+        context.moveTo(20, 50);
+        context.lineTo(220, 80);
+        context.quadraticCurveTo(150, 100, 260, 170);
+        context.closePath();
+        context.fillStrokeShape(shape);
+      }}
+      fill={props.color}
+      stroke={props.color}
+      strokeWidth={4}
+    />
+  )
+}
+
 const BigImageCanvas = (props) => {
   const imgUrl = props.imageId === 1 ? bigImage : bigImage2;
+  const renderShape = () => {
+    if (props.useComplexShape) {
+      return (<ComplexShape x={20} y={13} color={props.color} />);
+    } else {
+      return (<Rect x={20} y={13} width={160} height={107.5} fill={props.color} />);
+    }
+  };
   return (
     <Stage className="big-img-canvas" width={WIDTH} height={HEIGHT}>
       <Layer>
         <URLImage src={imgUrl} x={0} y={0} />
       </Layer>
       <Layer>
-        <Rect x={20} y={13} width={160} height={107.5} fill={props.color} />
+        {renderShape()}
       </Layer>
       <Layer>
         <Text text={props.text || "Wow, what a cool test."} fill="white" x={30} y={23} width={140} height={87.5} />
@@ -81,7 +106,7 @@ class CanvasTest extends React.Component {
   render() {
     return (
       <div className="canvas-test">
-        {Array(this.props.testSize).fill(<BigImageCanvas imageId={this.props.imageId} text={this.props.text} color={this.props.color} />)}
+        {Array(this.props.testSize).fill(<BigImageCanvas useComplexShape={this.props.useComplexShape} imageId={this.props.imageId} text={this.props.text} color={this.props.color} />)}
       </div>
     )
   }
