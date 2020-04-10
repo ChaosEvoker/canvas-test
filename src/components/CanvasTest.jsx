@@ -7,9 +7,9 @@ const WIDTH = 200;
 const HEIGHT = 133.5;
 
 const BigImage = () => {
-  console.log('img url: ', bigImage);
-  const [bigImg] = useImage(bigImage);
-  return <Image width={WIDTH} height={HEIGHT} image={bigImg} />;
+  // const [bigImg] = useImage(bigImage);
+  const imgURL = useImage('https://konvajs.org/assets/yoda.jpg');
+  return <Image width={WIDTH} height={HEIGHT} image={imgURL} />;
 }
 
 const BigImageCanvas = (props) => {
