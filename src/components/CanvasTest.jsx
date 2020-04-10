@@ -2,6 +2,7 @@ import React from 'react';
 import useImage from 'use-image';
 import {Stage, Layer, Text, Image, Rect} from 'react-konva';
 import bigImage from '../img/bigimage.jpg';
+import bigImage2 from '../img/bigimage2.jpg';
 
 const WIDTH = 200;
 const HEIGHT = 133.5;
@@ -12,10 +13,11 @@ const BigImage = () => {
 }
 
 const BigImageCanvas = (props) => {
+  const imgUrl = props.imageId === 1 ? bigImage : bigImage2;
   return (
     <Stage className="big-img-canvas" width={WIDTH} height={HEIGHT}>
       <Layer>
-        <URLImage src={bigImage} x={0} y={0} />
+        <URLImage src={imgUrl} x={0} y={0} />
       </Layer>
       <Layer>
         <Rect x={20} y={13} width={160} height={107.5} fill={props.color} />
@@ -59,7 +61,6 @@ class URLImage extends React.Component {
     // this.imageNode.getLayer().batchDraw();
   };
   render() {
-    console.log('boo')
     return (
       <Image
         x={this.props.x}
@@ -80,7 +81,7 @@ class CanvasTest extends React.Component {
   render() {
     return (
       <div className="canvas-test">
-        {Array(this.props.testSize).fill(<BigImageCanvas text={this.props.text} color={this.props.color} />)}
+        {Array(this.props.testSize).fill(<BigImageCanvas imageId={this.props.imageId} text={this.props.text} color={this.props.color} />)}
       </div>
     )
   }

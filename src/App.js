@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TestControls from './components/TestControls';
 import CanvasTest from './components/CanvasTest';
 import './style.css';
+import { parseWithoutProcessing } from 'handlebars';
 
 class App extends Component {
 
@@ -11,6 +12,7 @@ class App extends Component {
       text: 'Wow, what a cool test.',
       color: '#0793ca',
       items: 100,
+      imageId: 1
     }
   }
 
@@ -21,8 +23,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <TestControls onChange={this.handleChange} items={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></TestControls>
-        <CanvasTest testSize={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></CanvasTest>
+        <TestControls imageId={parseInt(this.state.imageId)} onChange={this.handleChange} items={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></TestControls>
+        <CanvasTest imageId ={parseInt(this.state.imageId)} testSize={parseInt(this.state.items)} text={this.state.text} color={this.state.color}></CanvasTest>
       </div>
     );
   }

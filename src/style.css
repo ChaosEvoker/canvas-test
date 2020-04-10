@@ -19,9 +19,10 @@
   margin-left: 12px;
   height: 30px;
   border: 1px solid white;
-  background: #0793ca;
+  background: #c0392b;
   color: white;
   border-radius: 6px;
+  cursor: pointer;
 }
 
 .canvas-test {
@@ -33,4 +34,12 @@
 
 .big-img-canvas {
   margin: 0 12px 12px 0;
+}
+
+.picture-change {
+  margin-left: 12px;
+}
+
+.test-control {
+  margin-right: 12px;
 }

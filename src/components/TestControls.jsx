@@ -7,7 +7,8 @@ class TestControls extends React.Component {
     this.state = {
       text: props.text,
       color: props.color,
-      items: props.items
+      items: props.items,
+      imageId: props.imageId
     }
   }
 
@@ -23,24 +24,35 @@ class TestControls extends React.Component {
     this.setState({items: event.target.value});
   }
 
-  changeText = () => {
+  handlePictureChange = (event) => {
+    this.setState({imageId: parseInt(event.target.value)});
+  }
+
+  changeCanvases = () => {
     this.props.onChange(this.state);
   }
 
   render() {
     return (
       <div className="test-controls">
-        <div>
+        <div className="test-control">
           Text: <input className="text-change" type="text" value={this.state.text} onChange={this.handleTextChange} />
         </div>
-        <div>
+        <div className="test-control">
           Color: <input className="color-change" type="text" value={this.state.color} onChange={this.handleColorChange} />
         </div>
-        <div>
+        <div className="test-control">
           # Items on Page: <input className="items-change" type="text" value={this.state.items} onChange={this.handleItemsChange} />
         </div>
-        <div>
-          <button className="update-btn" onClick={this.changeText}>Update</button>
+        <div className="test-control">
+          Picture: 
+          <input id="pick1" className="picture-change" type="radio" name="imageId" value={1} checked={this.state.imageId === 1} onChange={this.handlePictureChange} />
+          <label htmlFor="pic1">Picture 1</label>
+          <input id="pic2" className="picture-change" type="radio" name="imageId" value={2} checked={this.state.imageId === 2} onChange={this.handlePictureChange} />
+          <label htmlFor="pic2">Picture 2</label>
+        </div>
+        <div className="test-control">
+          <button className="update-btn" onClick={this.changeCanvases}>Change Canvases</button>
         </div>
       </div>
     )
