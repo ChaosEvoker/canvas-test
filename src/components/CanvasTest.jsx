@@ -8,7 +8,8 @@ const HEIGHT = 133.5;
 
 const BigImage = () => {
   // const [bigImg] = useImage(bigImage);
-  const imgURL = useImage('https://konvajs.org/assets/yoda.jpg');
+  const [imgURL] = useImage('https://static.showit.co/1200/Yas2uqNkTBSLjiC2ZMD-PA/66410/three16_photography-678.jpg');
+  console.log(imgURL);
   return <Image width={WIDTH} height={HEIGHT} image={imgURL} />;
 }
 
