@@ -1,0 +1,36 @@
+.test-controls {
+  background: #0793ca;
+  padding-left: 24px;
+  width: 100%;
+  height: 50px;
+  color: white;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+
+.text-change, .color-change, .items-change {
+  height: 30px;
+  border: 0;
+  margin-right: 12px;
+}
+
+.update-btn {
+  margin-left: 12px;
+  height: 30px;
+  border: 1px solid white;
+  background: #0793ca;
+  color: white;
+  border-radius: 6px;
+}
+
+.canvas-test {
+  margin: 12px;
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+}
+
+.big-img-canvas {
+  margin: 0 12px 12px 0;
+}
