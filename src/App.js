@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       text: 'Wow, what a cool test.',
       color: '#0793ca',
-      items: 1000,
+      items: 100,
     }
   }
 

@@ -7,6 +7,7 @@ const WIDTH = 200;
 const HEIGHT = 133.5;
 
 const BigImage = () => {
+  console.log('img url: ', bigImage);
   const [bigImg] = useImage(bigImage);
   return <Image width={WIDTH} height={HEIGHT} image={bigImg} />;
 }
